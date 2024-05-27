@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Entrées de stationnement</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Entrées de stationnement</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit" class="btn btn-primary mt-3">Ajouter une entrée</button>
+        </form>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Date/Heure</th>
+                    <th>Emplacement</th>
+                    <th>Suppression</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in entries %}
+                <tr>
+                    <td>{{ entry.vehicle.matricule }}</td>
+                    <td>{{ entry.entry_time }}</td>
+                    <td>{{ entry.location }}</td>
+                    <td>
+                        <a href="{% url 'delete_vehicle2' vehicle_id=entry.vehicle.id %}" class="btn btn-danger">Supprimer</a>
+                    </td>   
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+

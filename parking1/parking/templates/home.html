@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Parking Management</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .navbar {
+            background-color: #333333;
+            color: #ffffff;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        .navbar-nav .nav-link {
+            color: #ffffff;
+        }
+
+        .jumbotron {
+            background-image: linear-gradient(to bottom, #337ab7, #23527c);
+            color: #ffffff;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .card {
+            margin-top: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #f9f9f9;
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .card-body {
+            background-color: #ffffff;
+            color: #333333;
+        }
+
+        .list-group-item {
+            background-color: #ffffff;
+            border-color: #eaeaea;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-md">
+        <div class="container">
+            <a class="navbar-brand" href="#">Smart Parking Management</a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">À propos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login' %}">Admin login</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Bienvenue sur le site de notre parking !</h1>
+            <p class="lead">Nous offrons des services de stationnement de haute qualité.</p>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Caractéristiques du parking</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Emplacements de stationnement sécurisés</li>
+                    <li class="list-group-item">Surveillance 24h/24</li>
+                    <li class="list-group-item">Tarifs abordables</li>
+                    <li class="list-group-item">Personnel amical</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <footer class="fixed-bottom">
+        <!-- Contenu du footer commun -->
+        <div class="container text-center">
+            <p>&copy; 2023 Développé par Israe KHOUI. Tous droits réservés.</p>
+        </div>
+    </footer>
+</body>
+</html>

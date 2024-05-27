@@ -1,0 +1,56 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Tableau des entrées/sorties de stationnement</title>
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4">Tableau des entrées/sorties de stationnement</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Matricule</th>
+          <th>Date/Heure</th>
+          <th>Emplacement</th>
+          <th>Prix</th>
+          <th>suppression</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for entry in entries %}
+        <tr>
+          <td>{{ entry.vehicle.matricule }}</td>
+          <td>{{ entry.entry_time }}</td>
+          <td>{{ entry.location }}</td>
+          <td>N/A</td>
+          <td>
+            <a href="{% url 'delete_vehicle' vehicle_id=entry.vehicle.id %}" class="btn btn-danger">Supprimer</a>
+          </td>
+        </tr>
+        {% endfor %}
+        {% for exit in exits %}
+        <tr>
+          <td>{{ exit.parking_entry.vehicle.matricule }}</td>
+          <td>{{ exit.exit_time }}</td>
+          <td>{{ exit.freed_location }}</td>
+          <td>{{ exit.price }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <a href="{% url 'parking_entries' %}" class="btn btn-primary">Ajouter une entrée</a>
+    <a href="{% url 'parking_exits' %}" class="btn btn-primary">Ajouter une sortie</a>
+
+  </div>
+
+  <script src="{% static 'bootstrap/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>
+
+{% endblock%}

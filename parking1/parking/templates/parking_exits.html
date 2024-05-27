@@ -1,0 +1,41 @@
+{% extends 'base1.html' %}
+{% block content %}
+
+  <!DOCTYPE html>
+<html>
+<head>
+    <title>Sorties de stationnement</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Sorties de stationnement</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary mt-3">Ajouter une sortie</button>
+        </form>
+        <table class="table mt-5">
+            <thead>
+                <tr>
+                    <th>Matricule</th>
+                    <th>Date/Heure</th>
+                    <th>Emplacement libéré</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exit in exits %}
+                <tr>
+                    <td>{{ exit.parking_entry.vehicle.matricule }}</td>
+                    <td>{{ exit.exit_time }}</td>
+                    <td>{{ exit.freed_location }}</td>
+                    <td>{{ exit.price }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+{% endblock %}

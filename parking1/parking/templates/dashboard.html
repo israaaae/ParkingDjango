@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+            footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+        }
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .content {
+            flex: 1 0 auto;
+        }
+
+        .widget {
+            background-color: #ffcccc;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .widget h1 {
+            color: #cc0000;
+        }
+
+        .widget p {
+            color: #333;
+        }
+
+        .widget-blue {
+            background-color: #cceeff;
+        }
+
+        .widget-blue h1 {
+            color: #0066cc;
+        }
+
+        .widget-blue p {
+            color: #333;
+        }
+
+        .widget-green {
+            background-color: #ccffcc;
+        }
+
+        .widget-green h1 {
+            color: #009900;
+        }
+
+        .widget-green p {
+            color: #333;
+        }
+
+        .widget-yellow {
+            background-color: #ffffcc;
+        }
+
+        .widget-yellow h1 {
+            color: #999900;
+        }
+
+        .widget-yellow p {
+            color: #333;
+        }
+        
+        .widget-purple {
+            background-color: #e6ccff;
+        }
+
+        .widget-purple h1 {
+            color: #6600cc;
+        }
+
+        .widget-purple p {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Smart Parking Management</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'home' %}">Accueil</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">À propos</a>
+                        </li>
+                        <li>
+                        <a href="{% url 'logout' %}" class="nav-link">Se déconnecter</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <h1>Tableau de bord</h1>
+        <!-- Contenu spécifique au tableau de bord -->
+        <p>Bienvenue sur votre tableau de bord !</p>
+        <p>Vous êtes connecté en tant que {{ request.user.username }}.</p>
+        <!-- Fin du contenu spécifique --><br><br>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'parking_entries' %}" class="widget">
+                    <h1>parking_entries</h1>
+                    <p>Les véhicules entrées dans le parking.</p>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'parking_exits' %}" class="widget widget-blue">
+                    <h1>parking_exits</h1>
+                    <p>Les véhicules sorties du parking.</p>
+                </a>
+            </div>
+        </div><br><br>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{% url 'add_vehicle' %}" class="widget widget-green">
+                    <h1>Add vehicle</h1>
+                    <p>Ajouter une véhicule</p>
+                </a>
+            </div>
+            <div class="col-md-6">
+                <a href="{% url 'vehicle_list' %}" class="widget widget-yellow">
+                    <h1>vehicle_list</h1>
+                    <p>La liste des véhicules ajoutées dans la tableau.</p>
+                </a>
+            </div>
+        </div><br><br><br>
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <a href="{% url 'parking_table' %}" class="widget widget-purple">
+                    <h1>parking_table</h1>
+                    <p>Toutes les véhicules entrées et sorties </p>
+                </a>
+            </div>
+        </div>
+    </div>
+<br><br>
+
+<footer>
+    <!-- Contenu du footer commun -->
+    <div class="container text-center">
+        <p>&copy; 2023 Développé par Israe KHOUI. Tous droits réservés.</p>
+    </div>
+</footer>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
